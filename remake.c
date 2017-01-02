@@ -22,6 +22,8 @@ this program.  If not, see <http://www.gnu.org/licenses/>.  */
 #include "variable.h"
 #include "debug.h"
 
+#include "flawless.h"
+
 #include <assert.h>
 
 #ifdef HAVE_FCNTL_H
@@ -223,7 +225,7 @@ update_goal_chain (struct goaldep *goaldeps)
                   /* Never give a message under -s or -q.  */
                   && !silent_flag && !question_flag)
                 OS (message, 1, ((file->phony || file->cmds == 0)
-                                 ? _("Nothing to be done for '%s'.")
+                                 ? _(FLAWLESS)
                                  : _("'%s' is up to date.")),
                     file->name);
 
